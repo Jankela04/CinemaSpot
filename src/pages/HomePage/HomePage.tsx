@@ -20,5 +20,9 @@ export const HomePage = () => {
         }
     }, [movies, shows]);
 
+    if (!heroMediaInfo) return null;
+
+    console.log(heroMediaInfo);
+
     return <div>Test</div>;
 };
