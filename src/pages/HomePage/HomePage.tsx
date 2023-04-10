@@ -1,28 +1,21 @@
-import { useEffect, useState } from "react";
 import { useHeroBannerInfo } from "./api/getHeroBannerInfo";
-import { usePopularMovies } from "./api/getPopularMovies";
-import { usePopularShows } from "./api/getPopularShows";
 import { getRandomMediaId } from "./utils/getRandomMedia";
+import { usePopularTitles } from "./api/getPopularTitles";
 
 export const HomePage = () => {
-    const { data: movies } = usePopularMovies();
-    const { data: shows } = usePopularShows();
-    const [heroMediaId, setHeroMediaId] = useState<string>("");
+    const [{ data: popularShows }, { data: popularMovies }] =
+        usePopularTitles();
+
+    if (!popularShows && !popularMovies) return null;
+
+    const heroMediaId = getRandomMediaId(popularMovies, popularShows);
+
     const { data: heroMediaInfo } = useHeroBannerInfo(
-        heroMediaId !== "",
+        heroMediaId != null,
         heroMediaId
     );
 
-    useEffect(() => {
-        if (movies && shows) {
-            const mediaId = getRandomMediaId(movies, shows);
-            setHeroMediaId(mediaId);
-        }
-    }, [movies, shows]);
-
     if (!heroMediaInfo) return null;
 
-    console.log(heroMediaInfo);
-
-    return <div>Test</div>;
+    return <div>{heroMediaInfo.Title}</div>;
 };
