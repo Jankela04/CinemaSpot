@@ -1,4 +1,7 @@
+@import "../../../assets/variables";
+
 .spinner {
+    background-color: $bg-color;
     width: 100vw;
     height: 100vh;
     display: flex;
