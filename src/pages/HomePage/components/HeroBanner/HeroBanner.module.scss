@@ -1,0 +1,24 @@
+@import "../../../../assets/variables";
+
+.banner {
+    padding-top: 2em;
+    display: flex;
+    gap: 1em;
+    font-size: 1.1em;
+    .image {
+        max-width: 35%;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        .title {
+            margin-bottom: 0.2em;
+        }
+        .year {
+            display: inline-block;
+            margin-bottom: 1em;
+        }
+    }
+}
