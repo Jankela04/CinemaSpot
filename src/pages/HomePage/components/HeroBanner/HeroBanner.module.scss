@@ -6,7 +6,7 @@
     gap: 1em;
     font-size: 1.1em;
     .image {
-        max-width: 35%;
+        max-width: 100%;
     }
     .info {
         display: flex;
@@ -14,11 +14,28 @@
         align-items: flex-start;
         justify-content: space-between;
         .title {
-            margin-bottom: 0.2em;
+            margin-bottom: 0.2rem;
         }
         .year {
             display: inline-block;
             margin-bottom: 1em;
+        }
+        .plot{
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .banner {
+        flex-direction: column;
+        align-items: center;
+        .image{
+            max-width:80%;
+        }
+        .info {
+            text-align: center;
+            align-items: center;
         }
     }
 }
