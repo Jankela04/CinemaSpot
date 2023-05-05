@@ -1,0 +1,36 @@
+.container {
+    font-size: 1.2rem;
+    margin-top: 3rem;
+    .list {
+        overflow: auto;
+        height: 300px;
+        display: flex;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    .title_card {
+        cursor: pointer;
+        background-repeat: no-repeat;
+        aspect-ratio: 8 / 11;
+        background-size: contain;
+        transition: scale 200ms linear;
+        position: relative;
+        padding: 1rem;
+        .title {
+            z-index: 1;
+            font-size: 1rem;
+            color: white;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-top: 1rem;
+            height: 40%;
+            background: linear-gradient(to bottom, #000, transparent);
+            padding-inline: 1rem;
+        }
+        &:hover {
+            scale: 1.05;
+        }
+    }
+}

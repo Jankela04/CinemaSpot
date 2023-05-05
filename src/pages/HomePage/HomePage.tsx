@@ -1,9 +1,10 @@
 import { useHeroBannerInfo } from "./api/getHeroBannerInfo";
-import { getRandomMediaId } from "./utils/getRandomMedia";
+import { getRandomTitleId } from "./utils/getRandomTitleId";
 import { usePopularTitles } from "./api/getPopularTitles";
 import { HeroBanner } from "./components/HeroBanner";
 import { Container } from "@mui/material";
-import {PopularTitles} from "@/pages/HomePage/components/PopularTitles";
+import { PopularTitles } from "@/pages/HomePage/components/PopularTitles";
+import { getTopRatedTitles } from "./utils/get20RandomTitles";
 
 export const HomePage = () => {
     const [{ data: popularShows }, { data: popularMovies }] =
@@ -11,7 +12,7 @@ export const HomePage = () => {
 
     if (!popularShows && !popularMovies) return null;
 
-    const heroMediaId = getRandomMediaId(popularMovies, popularShows);
+    const heroMediaId = getRandomTitleId(popularMovies, popularShows);
 
     const { data: heroMedia } = useHeroBannerInfo(
         heroMediaId != null,
@@ -23,7 +24,14 @@ export const HomePage = () => {
     return (
         <Container>
             <HeroBanner media={heroMedia} />
-            <PopularTitles type={"Movies"} list={popularMovies}/>
+            <PopularTitles
+                type={"Movies"}
+                list={getTopRatedTitles(popularMovies)}
+            />
+            <PopularTitles
+                type={"Shows"}
+                list={getTopRatedTitles(popularShows)}
+            />
         </Container>
     );
 };
