@@ -1,19 +1,46 @@
 .container {
     font-size: 1.2rem;
     margin-top: 3rem;
-    .list {
-        overflow: auto;
-        height: 300px;
-        display: flex;
-        gap: 2rem;
-        padding: 1rem;
+    .list_wrapper {
+        position: relative;
+        .list {
+            overflow-x: auto;
+            display: flex;
+            height: 300px;
+            gap: 2rem;
+            padding: 1rem;
+        }
+        .scroll_btn {
+            cursor: pointer;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 3rem;
+            height: 3rem;
+            z-index: 2;
+            background-color: black;
+            top: 50%;
+            transform: translateY(-50%);
+            &:hover {
+                background-color: rgb(49, 49, 49);
+            }
+        }
+        .btn_left {
+            left: -1rem;
+        }
+        .btn_right {
+            right: -1rem;
+        }
     }
     .title_card {
         cursor: pointer;
         background-repeat: no-repeat;
-        aspect-ratio: 8 / 11;
-        background-size: contain;
+        aspect-ratio: 8 / 12;
+        background-size: cover;
         transition: scale 200ms linear;
+        background-position: center;
         position: relative;
         padding: 1rem;
         .title {
