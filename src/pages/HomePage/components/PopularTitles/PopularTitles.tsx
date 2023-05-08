@@ -11,10 +11,10 @@ export const PopularTitles: React.FC<Props> = ({ list, type }) => {
     const listRef = useRef<HTMLDivElement>(null);
 
     const handleScrollButtonClick = (dir: "left" | "right") => {
-        const SCROLL_AMOUNT = 700;
+        const SCROLL_AMOUNT = window.innerWidth * 0.5;
         if (listRef.current) {
             listRef.current.scrollBy({
-                left: dir === "left" ? -SCROLL_AMOUNT : SCROLL_AMOUNT,
+                left: dir === "right" ? SCROLL_AMOUNT : -SCROLL_AMOUNT,
                 behavior: "smooth",
             });
         }
