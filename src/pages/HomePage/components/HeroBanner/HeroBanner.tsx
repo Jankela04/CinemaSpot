@@ -1,12 +1,14 @@
 import { Button } from "@mui/material";
 import { MediaInfo } from "../../types";
 import styles from "./HeroBanner.module.scss";
+import { useNavigate } from "react-router-dom";
 
 type HeroBannerProps = {
     media: MediaInfo;
 };
 
 export const HeroBanner = ({ media }: HeroBannerProps) => {
+    const navigate = useNavigate();
     return (
         <div className={styles.banner}>
             <img
@@ -20,7 +22,11 @@ export const HeroBanner = ({ media }: HeroBannerProps) => {
                     <span className={styles.year}>{media.Year}</span>
                     <p className={styles.plot}>{media.Plot}</p>
                 </div>
-                <Button color="primary" variant="contained">
+                <Button
+                    color="primary"
+                    variant="contained"
+                    onClick={() => navigate(`/${media.imdbID}`)}
+                >
                     Details
                 </Button>
             </div>
