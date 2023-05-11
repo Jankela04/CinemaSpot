@@ -1,6 +1,6 @@
 import { OMDbaxios } from "@/lib/axios";
 import { useQuery } from "@tanstack/react-query";
-import { MediaInfo } from "@/types";
+import { TitleInfo } from "@/types";
 
 //returns movie/tvshow info for Hero Banner
 const getHeroBannerInfo = async (ID: string) => {
@@ -9,7 +9,7 @@ const getHeroBannerInfo = async (ID: string) => {
 };
 
 export const useHeroBannerInfo = (enabled: boolean, ID: string) => {
-    return useQuery<MediaInfo>({
+    return useQuery<TitleInfo>({
         enabled,
         queryKey: ["getHeroBannerInfo"],
         queryFn: () => getHeroBannerInfo(ID),

@@ -1,31 +1,31 @@
 import { Button } from "@mui/material";
-import { MediaInfo } from "@/types";
+import { TitleInfo } from "@/types";
 import styles from "./HeroBanner.module.scss";
 import { useNavigate } from "react-router-dom";
 
 type HeroBannerProps = {
-    media: MediaInfo;
+    title: TitleInfo;
 };
 
-export const HeroBanner = ({ media }: HeroBannerProps) => {
+export const HeroBanner = ({ title }: HeroBannerProps) => {
     const navigate = useNavigate();
     return (
         <div className={styles.banner}>
             <img
-                src={media.Poster}
+                src={title.Poster}
                 className={styles.image}
-                alt={media.Title}
+                alt={title.Title}
             />
             <div className={styles.info}>
                 <div>
-                    <h1 className={styles.title}>{media.Title}</h1>
-                    <span className={styles.year}>{media.Year}</span>
-                    <p className={styles.plot}>{media.Plot}</p>
+                    <h1 className={styles.title}>{title.Title}</h1>
+                    <span className={styles.year}>{title.Year}</span>
+                    <p className={styles.plot}>{title.Plot}</p>
                 </div>
                 <Button
                     color="primary"
                     variant="contained"
-                    onClick={() => navigate(`/${media.imdbID}`)}
+                    onClick={() => navigate(`/${title.imdbID}`)}
                 >
                     Details
                 </Button>

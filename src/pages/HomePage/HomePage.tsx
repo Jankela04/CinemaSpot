@@ -12,18 +12,18 @@ export const HomePage = () => {
 
     if (!popularShows && !popularMovies) return null;
 
-    const heroMediaId = getRandomTitleId(popularMovies, popularShows);
+    const heroTitleId = getRandomTitleId(popularMovies, popularShows);
 
-    const { data: heroMedia } = useHeroBannerInfo(
-        heroMediaId != null,
-        heroMediaId
+    const { data: heroTitle } = useHeroBannerInfo(
+        heroTitleId != null,
+        heroTitleId
     );
 
-    if (!heroMedia) return null;
+    if (!heroTitle) return null;
 
     return (
         <Container>
-            <HeroBanner media={heroMedia} />
+            <HeroBanner title={heroTitle} />
             <PopularTitles
                 type={"Movies"}
                 list={getTopRatedTitles(popularMovies)}

@@ -1,4 +1,4 @@
-import { HomePage, MediaPage } from "@/pages";
+import { HomePage, TitlePage } from "@/pages";
 import { useRoutes, Navigate } from "react-router-dom";
 
 export const AppRoutes = () => {
@@ -8,8 +8,8 @@ export const AppRoutes = () => {
             element: <HomePage />,
         },
         {
-            path: "/:mediaid",
-            element: <MediaPage />,
+            path: "/:titleid",
+            element: <TitlePage />,
         },
         {
             path: "*",

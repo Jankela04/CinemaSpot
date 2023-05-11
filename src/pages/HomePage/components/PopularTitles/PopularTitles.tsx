@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
-import { Media } from "@/types";
+import { Title } from "@/types";
 import styles from "./styles.module.scss";
 import { TitleCard } from "@/pages/HomePage/components/PopularTitles/TitleCard";
 
 type Props = {
     type: "Movies" | "Shows";
-    list: Media[];
+    list: Title[];
 };
 export const PopularTitles: React.FC<Props> = ({ list, type }) => {
     const listRef = useRef<HTMLDivElement>(null);

@@ -1,4 +1,4 @@
-export interface Media {
+export interface Title {
     id: string;
     rank: string;
     rankUpDown: string;
@@ -11,7 +11,7 @@ export interface Media {
     imDbRatingCount: string;
 }
 
-export interface MediaInfo {
+export interface TitleInfo {
     Title: string;
     Year: string;
     Rated: string;

@@ -1,10 +1,10 @@
-import { Media } from "@/types";
+import { Title } from "@/types";
 
-// returns random id of media(movie/tvshow) to show on hero banner
-export const getRandomTitleId = (movies: Media[], shows: Media[]) => {
-    const media = movies.concat(shows);
+// returns random id of title(movie/tvshow) to show on hero banner
+export const getRandomTitleId = (movies: Title[], shows: Title[]) => {
+    const title = movies.concat(shows);
 
-    const randomIndex = Math.floor(Math.random() * media.length);
+    const randomIndex = Math.floor(Math.random() * title.length);
 
-    return media[randomIndex].id;
+    return title[randomIndex].id;
 };
