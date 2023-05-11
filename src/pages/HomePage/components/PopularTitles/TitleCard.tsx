@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Media } from "@/pages/HomePage/types";
+import { Media } from "@/types";
 import styles from "./styles.module.scss";
 import { useNavigate } from "react-router-dom";
 

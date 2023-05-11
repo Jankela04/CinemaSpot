@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Media } from "@/pages/HomePage/types";
+import { Media } from "@/types";
 import styles from "./styles.module.scss";
 import { TitleCard } from "@/pages/HomePage/components/PopularTitles/TitleCard";
 

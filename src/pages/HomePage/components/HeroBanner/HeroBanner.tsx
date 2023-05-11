@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { MediaInfo } from "../../types";
+import { MediaInfo } from "@/types";
 import styles from "./HeroBanner.module.scss";
 import { useNavigate } from "react-router-dom";
 

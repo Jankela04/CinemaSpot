@@ -1,6 +1,6 @@
 import { OMDbaxios } from "@/lib/axios";
 import { useQuery } from "@tanstack/react-query";
-import { MediaInfo } from "../types";
+import { MediaInfo } from "@/types";
 
 //returns movie/tvshow info for Hero Banner
 const getHeroBannerInfo = async (ID: string) => {

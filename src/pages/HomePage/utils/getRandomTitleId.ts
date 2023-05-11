@@ -1,4 +1,4 @@
-import { Media } from "../types";
+import { Media } from "@/types";
 
 // returns random id of media(movie/tvshow) to show on hero banner
 export const getRandomTitleId = (movies: Media[], shows: Media[]) => {
