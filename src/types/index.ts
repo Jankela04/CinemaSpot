@@ -26,7 +26,7 @@ export interface TitleInfo {
     Country: string;
     Awards: string;
     Poster: string;
-    Ratings: RatingsEntity[] | null;
+    Ratings: RatingsEntity[];
     Metascore: string;
     imdbRating: string;
     imdbVotes: string;
@@ -35,7 +35,7 @@ export interface TitleInfo {
     totalSeasons: string;
     Response: string;
 }
-interface RatingsEntity {
+export interface RatingsEntity {
     Source: string;
     Value: string;
 }

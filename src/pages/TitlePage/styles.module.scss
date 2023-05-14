@@ -1,9 +1,34 @@
 .info {
     padding-top: 1rem;
     padding-bottom: 1rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    .ratings {
+        display: flex;
+        gap: 2rem;
+        .rating {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .rating_source {
+                img {
+                    width: 40px;
+                }
+            }
+        }
+    }
     .left {
         span {
             color: rgb(196, 196, 196);
         }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }

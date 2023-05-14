@@ -2,6 +2,10 @@ import { useParams } from "react-router-dom";
 import { useTitleInfo } from "./api/getTitleInfo";
 import { Container } from "@mui/material";
 import styles from "./styles.module.scss";
+import { RatingsEntity } from "@/types";
+import IMDBIcon from "@/assets/IMDb_icon.png";
+import MetacriticIcon from "@/assets/Metacritic_icon.png";
+import RottenTomatoesIcon from "@/assets/Rotten_Tomatoes_icon.png";
 
 type Params = {
     titleid: string;
@@ -32,8 +36,37 @@ export const TitlePage = () => {
                         {titleData.Rated}
                     </span>
                 </div>
-                <div></div>
+                <Ratings ratings={titleData.Ratings} />
             </div>
         </Container>
+    );
+};
+type RatingsProps = {
+    ratings: RatingsEntity[];
+};
+
+export const Ratings = ({ ratings }: RatingsProps) => {
+    return (
+        <div className={styles.ratings}>
+            {ratings.map((rating) => {
+                return (
+                    <div className={styles.rating}>
+                        <div className={styles.rating_source}>
+                            <img
+                                src={
+                                    rating.Source === "Internet Movie Database"
+                                        ? IMDBIcon
+                                        : rating.Source === "Rotten Tomatoes"
+                                        ? RottenTomatoesIcon
+                                        : MetacriticIcon
+                                }
+                                alt={rating.Source}
+                            />
+                        </div>
+                        <div className={styles.score}>{rating.Value}</div>
+                    </div>
+                );
+            })}
+        </div>
     );
 };
