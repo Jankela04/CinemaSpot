@@ -2,10 +2,11 @@ import { useParams } from "react-router-dom";
 import { useTitleInfo } from "./api/getTitleInfo";
 import { Container } from "@mui/material";
 import styles from "./styles.module.scss";
-import { RatingsEntity } from "@/types";
+import { TitleInfo } from "@/types";
 import IMDBIcon from "@/assets/IMDb_icon.png";
 import MetacriticIcon from "@/assets/Metacritic_icon.png";
 import RottenTomatoesIcon from "@/assets/Rotten_Tomatoes_icon.png";
+import { generateLink } from "./utils/getLinks";
 
 type Params = {
     titleid: string;
@@ -36,21 +37,28 @@ export const TitlePage = () => {
                         {titleData.Rated}
                     </span>
                 </div>
-                <Ratings ratings={titleData.Ratings} />
+                <Ratings title={titleData} />
             </div>
         </Container>
     );
 };
-type RatingsProps = {
-    ratings: RatingsEntity[];
-};
 
-export const Ratings = ({ ratings }: RatingsProps) => {
+export const Ratings = ({ title }: { title: TitleInfo }) => {
+    const ratings = title.Ratings;
+
     return (
         <div className={styles.ratings}>
             {ratings.map((rating) => {
                 return (
-                    <div className={styles.rating}>
+                    <div
+                        className={styles.rating}
+                        onClick={() => {
+                            window.open(
+                                generateLink(rating.Source, title),
+                                "_blank"
+                            );
+                        }}
+                    >
                         <div className={styles.rating_source}>
                             <img
                                 src={

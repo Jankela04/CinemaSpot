@@ -8,6 +8,7 @@
         display: flex;
         gap: 2rem;
         .rating {
+            cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
